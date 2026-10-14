@@ -1,0 +1,71 @@
+SITE CATALOGUE — BOUGIES RELIGIEUSES
+====================================
+
+Le site lit son contenu dans un tableau Google Sheets.
+Pour changer un prix, ajouter ou cacher une bougie : on modifie le tableau,
+le site se met à jour tout seul quelques minutes plus tard.
+
+Contenu du dossier
+------------------
+index.html              la page du site (ne pas modifier)
+config.js               les 2 liens vers votre tableau (à remplir une fois)
+catalogue-bougies.xlsx  le modèle de tableau à importer dans Google Sheets
+produits.csv            données d'exemple, utilisées tant que config.js est vide
+boutique.csv            idem pour les infos de la boutique
+images/                 photos de départ
+
+
+ÉTAPE 1 — Créer le tableau
+--------------------------
+1. Envoyez catalogue-bougies.xlsx dans votre Google Drive.
+2. Ouvrez-le, puis Fichier > Enregistrer au format Google Sheets.
+3. Remplissez l'onglet "Boutique" (nom, adresse, téléphone…).
+   L'onglet "Mode d'emploi" explique chaque colonne.
+
+
+ÉTAPE 2 — Publier le tableau
+----------------------------
+1. Dans Google Sheets : Fichier > Partager > Publier sur le web.
+2. Choisissez l'onglet "Produits" et le format "Valeurs séparées par des virgules (.csv)".
+3. Cliquez Publier et copiez le lien.
+4. Recommencez avec l'onglet "Boutique".
+5. Ouvrez config.js avec un éditeur de texte (Bloc-notes) et collez les deux liens
+   entre les guillemets :
+       produitsCsv: "https://docs.google.com/spreadsheets/d/e/....output=csv",
+       boutiqueCsv: "https://docs.google.com/spreadsheets/d/e/....output=csv"
+
+
+ÉTAPE 3 — Les photos
+--------------------
+Méthode simple (tout depuis Google) :
+1. Mettez la photo dans Google Drive.
+2. Clic droit > Partager > Accès général : "Tous les utilisateurs disposant du lien".
+3. Copiez le lien et collez-le dans la colonne "photo" du tableau.
+
+Autre méthode : mettez la photo dans le dossier images/ du site et écrivez
+juste son nom dans la colonne "photo" (ex. sainte-rita.jpg). Il faut alors
+remettre le site en ligne (étape 4) après chaque nouvelle photo.
+
+Conseil : photos verticales, bougie bien centrée, fond simple.
+
+
+ÉTAPE 4 — Mettre le site en ligne (gratuit)
+-------------------------------------------
+1. Allez sur https://app.netlify.com/drop
+2. Glissez-déposez le dossier complet du site.
+3. Créez un compte gratuit quand c'est proposé, sinon le site disparaît après une heure.
+4. Dans les réglages du site (Site configuration > Change site name),
+   choisissez une adresse, ex. bougies-saint-antoine.netlify.app
+5. Plus tard, vous pourrez y relier votre propre nom de domaine.
+
+Le site ne fonctionne pas en ouvrant index.html par double-clic :
+le navigateur bloque la lecture du tableau. Testez-le une fois en ligne.
+
+
+AU QUOTIDIEN
+------------
+- Cacher une bougie : mettre "non" dans la colonne actif.
+- Prix vide = le site affiche "Prix sur demande".
+- Ajouter une catégorie : des boutons de filtre apparaissent automatiquement.
+- Changer la couleur du site : onglet Boutique, ligne couleur (ex. #1F3D6B pour du bleu).
+- Les modifications du tableau apparaissent sur le site après environ 5 minutes.
